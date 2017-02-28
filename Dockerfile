@@ -1,9 +1,9 @@
 FROM alpine:3.5
-MAINTAINER Abiola Ibrahim <abiola89@gmail.com>
+MAINTAINER Rolf Larsen <rolf@supereye.org>
 
 LABEL caddy_version="0.9.5" architecture="amd64"
 
-ARG plugins=git
+ARG plugins=filemanager
 
 RUN apk add --no-cache openssh-client git tar curl
 
