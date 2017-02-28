@@ -6,7 +6,7 @@ A [Docker](http://docker.com) image for [Caddy](http://caddyserver.com). This im
 ## Getting Started
 
 ```sh
-$ docker run -d -p 2015:2015 roflmao/caddy
+$ docker run -d -p 2015:2015 roflmao/caddy-docker
 ```
 
 Point your browser to `http://127.0.0.1:2015`.
@@ -22,7 +22,7 @@ $ docker run -d \
     -v $(pwd)/Caddyfile:/etc/Caddyfile \
     -v $HOME/.caddy:/root/.caddy \
     -p 80:80 -p 443:443 \
-    roflmao/caddy
+    roflmao/caddy-docker
 ```
 
 
@@ -35,7 +35,7 @@ $ docker run -d \
     -e "CADDYPATH=/etc/caddycerts" \
     -v $HOME/.caddy:/etc/caddycerts \
     -p 80:80 -p 443:443 \
-    roflmao/caddy
+    roflmao/caddy-docker
 ```
 
 Above, we utilize the `CADDYPATH` environment variable to define a different location inside the container for
@@ -44,7 +44,7 @@ certificates to be stored. This is probably the safest option as it ensures any 
 ##### Run the image
 
 ```sh
-$ docker run -d -v $(pwd)/Caddyfile:/etc/Caddyfile -p 2015:2015 roflmao/caddy
+$ docker run -d -v $(pwd)/Caddyfile:/etc/Caddyfile -p 2015:2015 roflmao/caddy-docker
 ```
 Point your browser to `http://127.0.0.1:2015`.
 
@@ -65,7 +65,7 @@ $ docker run -d \
     -v /path/to/sites/root:/srv \
     -v path/to/Caddyfile:/etc/Caddyfile \
     -p 2015:2015 \
-    roflmao/caddy
+    roflmao/caddy-docker
 ```
 
 ### Let's Encrypt Auto SSL
@@ -86,5 +86,5 @@ You can change the the ports if ports 80 and 443 are not available on host. e.g.
 $ docker run -d \
     -v $(pwd)/Caddyfile:/etc/Caddyfile \
     -p 80:80 -p 443:443 \
-    roflmao/caddy
+    roflmao/caddy-docker
 ```
