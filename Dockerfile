@@ -1,15 +1,13 @@
 FROM alpine:3.5
 MAINTAINER Rolf Larsen <rolf@supereye.org>
 
-LABEL caddy_version="0.9.5" architecture="amd64"
-
-ARG plugins=filemanager
+ARG plugins=http.filemanager
 
 RUN apk add --no-cache openssh-client git tar curl
 
 RUN curl --silent --show-error --fail --location \
       --header "Accept: application/tar+gzip, application/x-gzip, application/octet-stream" -o - \
-      "https://caddyserver.com/download/build?os=linux&arch=amd64&features=${plugins}" \
+      "https://caddyserver.com/download/linux/amd64?plugins=${plugins}&license=personal" \
     | tar --no-same-owner -C /usr/bin/ -xz caddy \
  && chmod 0755 /usr/bin/caddy \
  && /usr/bin/caddy -version
